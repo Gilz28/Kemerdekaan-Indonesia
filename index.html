@@ -1,0 +1,1504 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HUT RI ke-80 — Semangat Kemerdekaan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --merah:#E60023;
+    --merah-tua:#b0001b;
+    --putih:#ffffff;
+    --hitam:#0f0f0f;
+    --abu:#1c1c1c;
+    --emas:#f7c948;
+    --glass: rgba(255,255,255,.08);
+  }
+  *{box-sizing:border-box}
+  html,body{
+    margin:0;
+    padding:0;
+    font-family:"Lexend Deca",system-ui,Arial,sans-serif;
+    background:linear-gradient(180deg,#0a0a0a,#121212 40%,#171717);
+    color:#eee;
+    scroll-behavior:smooth;
+    overflow-x:hidden;
+    max-width:100vw; /* Tambahan untuk mencegah overflow horizontal */
+  }
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .container{
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 18px;
+    width:100%; /* Pastikan container tidak melebihi viewport */
+  }
+
+  /* NAV */
+  header{
+    position:sticky;top:0;z-index:50;
+    backdrop-filter:blur(10px);
+    background:linear-gradient(90deg,#0a0a0aa0,#0a0a0af0);
+    border-bottom:1px solid #ffffff10;
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:10px 0;
+    flex-wrap:wrap; /* Tambahan untuk responsif */
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:800;
+    letter-spacing:.5px;
+    flex-wrap:wrap; /* Tambahan untuk responsif */
+  }
+  .brand .badge{
+    background:var(--merah);
+    color:#fff;
+    padding:6px 10px;
+    border-radius:999px;
+    font-size:.8rem;
+    white-space:nowrap; /* Mencegah wrap */
+  }
+  .nav ul{
+    display:flex;
+    gap:12px;
+    list-style:none;
+    padding:0;
+    margin:0;
+    flex-wrap:wrap;
+  }
+  .nav a{
+    padding:8px 12px;
+    border-radius:10px;
+    opacity:.9;
+    white-space:nowrap; /* Mencegah wrap */
+  }
+  .nav a:hover{background:#ffffff12;opacity:1}
+  .cta{display:flex;gap:10px;flex-wrap:wrap;} /* Tambahan flex-wrap */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    border:none;
+    cursor:pointer;
+    border-radius:14px;
+    padding:10px 14px;
+    font-weight:600;
+    transition:all 0.3s ease;
+    white-space:nowrap; /* Tambahan untuk responsif tombol */
+  }
+  .btn-primary{
+    background:var(--merah);
+    color:#fff;
+    box-shadow:0 8px 24px #e6002325
+  }
+  .btn-primary:hover{
+    background:var(--merah-tua);
+    transform:translateY(-2px);
+    box-shadow:0 10px 28px #e6002340
+  }
+  .btn-ghost{background:#ffffff10;color:#fff}
+  .btn-ghost:hover{background:#ffffff18;transform:translateY(-2px)}
+
+  /* HERO */
+  .hero{
+    position:relative;
+    isolation:isolate;
+    padding:60px 0 40px;
+    overflow:hidden
+  }
+  .hero .grid{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:28px;
+    align-items:center
+  }
+  .kapsul{
+    display:inline-flex;
+    gap:10px;
+    align-items:center;
+    background:#ffffff10;
+    border:1px solid #ffffff14;
+    border-radius:999px;
+    padding:6px 12px;
+    margin-bottom:14px;
+    font-size:.9rem;
+    flex-wrap:wrap; /* Tambahan untuk responsif */
+  }
+  h1{
+    font-size:clamp(34px,6vw,64px);
+    line-height:1.05;
+    margin:0 0 12px;
+    font-weight:800;
+    word-break:break-word; /* Tambahan untuk responsif */
+  }
+  .sub{
+    opacity:.9;
+    max-width:60ch;
+    margin-bottom:20px;
+    word-break:break-word; /* Tambahan untuk responsif */
+  }
+  .stats{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-top:14px;
+  }
+  .stat{
+    background:#ffffff08;
+    border:1px solid #ffffff12;
+    padding:10px 14px;
+    border-radius:12px;
+    transition:all 0.3s ease;
+  }
+  .stat:hover{transform:translateY(-3px);box-shadow:0 5px 15px rgba(0,0,0,0.3);}
+  .hero-decor{
+    position:absolute;
+    inset:auto -20vw -40% -20vw;
+    height:60vh;
+    z-index:-1;
+    background:
+      radial-gradient(600px 300px at 20% 10%, #e6002312, transparent 60%),
+      radial-gradient(600px 300px at 80% 20%, #ffffff10, transparent 60%);
+    filter:blur(40px);
+  }
+
+  /* WAVING FLAG (SVG container) */
+  .flag-wrap{
+    position:relative; 
+    width:100%; 
+    aspect-ratio:4/3; 
+    max-width:520px; 
+    margin-inline:auto;
+    overflow:hidden; /* Tambahan untuk responsif */
+  }
+  .tiang{
+    position:absolute;
+    left:-18px;
+    top:0;
+    bottom:0;
+    width:10px;
+    background:linear-gradient(#888,#555);
+    border-radius:10px;
+  }
+  .ikat{
+    position:absolute;
+    left:-8px;
+    top:12px;
+    height:22px;
+    width:22px;
+    border:3px solid #999;
+    border-radius:50%;
+  }
+  .shadow{
+    position:absolute;
+    inset:auto 0 -6px 40px;
+    height:14px;
+    background:radial-gradient(60% 100% at 40% 0, #00000050, transparent 70%);
+    filter:blur(8px);
+    width:100%; /* Tambahan untuk responsif */
+  }
+  .flag-credit{font-size:.75rem;opacity:.6;text-align:center;margin-top:6px}
+
+  /* SECTION */
+  section{
+    padding:60px 0;
+    border-top:1px solid #ffffff10;
+    width:100%; /* Tambahan untuk responsif */
+    overflow:hidden; /* Tambahan untuk responsif */
+  }
+  .sec-title{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:18px;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .sec-title h2{
+    margin:0;
+    font-size:clamp(22px,3.4vw,34px);
+    word-break:break-word; /* Tambahan untuk responsif */
+  }
+  .pill{
+    background:#ffffff10;
+    border:1px solid #ffffff18;
+    padding:6px 10px;
+    border-radius:999px;
+    font-size:.9rem;
+    white-space:nowrap; /* Tambahan untuk responsif */
+  }
+
+  /* NAVIGATOR LOMBA */
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+  }
+  .card{
+    background:linear-gradient(180deg,#ffffff08,#ffffff05);
+    border:1px solid #ffffff12;
+    border-radius:18px;
+    padding:16px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    position:relative;
+    overflow:hidden;
+    transition:all 0.3s ease;
+  }
+  .card:hover{transform:translateY(-5px);box-shadow:0 10px 20px rgba(0,0,0,0.3);}
+  .card .emoji{font-size:28px}
+  .card h3{margin:0}
+  .badge-mini{
+    position:absolute;
+    right:10px;
+    top:10px;
+    background:#ffffff10;
+    border:1px solid #ffffff18;
+    border-radius:999px;
+    padding:4px 8px;
+    font-size:.75rem;
+    white-space:nowrap; /* Tambahan untuk responsif */
+  }
+  .card .actions{
+    margin-top:auto;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap; /* Tambahan untuk responsif */
+  }
+  .chip{font-size:.85rem;opacity:.8;word-break:break-word;} /* Tambahan word-break */
+
+  /* MODAL */
+  .modal{
+    position:fixed;
+    inset:0;
+    background:#00000080;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    z-index:60;
+    overflow:auto; /* Tambahan untuk responsif */
+  }
+  .modal.active{display:flex}
+  .modal .box{
+    background:#141414;
+    border:1px solid #ffffff14;
+    border-radius:18px;
+    padding:18px;
+    max-width:520px;
+    width:100%;
+    max-height:90vh;
+    overflow-y:auto;
+    margin:20px; /* Tambahan untuk responsif */
+  }
+  .modal .box h3{margin-top:0}
+  .modal .row{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:12px;
+  }
+  .modal .row .btn{flex:1; min-width:120px; /* Tambahan untuk responsif */}
+  .game-container{
+    margin:20px 0;
+    padding:20px;
+    background:#1a1a1a;
+    border-radius:12px;
+    text-align:center;
+    overflow:hidden; /* Tambahan untuk responsif */
+  }
+
+  /* BUKU SEJARAH (flip) */
+  .book{
+    perspective:1200px;
+    display:grid;
+    place-items:center;
+    margin-top:8px;
+    max-width:100%; /* Tambahan untuk responsif */
+  }
+  .book-wrap{
+    width:min(760px,100%);
+    aspect-ratio:16/9;
+    position:relative;
+    transform-style:preserve-3d;
+    max-width:100%; /* Tambahan untuk responsif */
+  }
+  .page{
+    position:absolute;
+    inset:0;
+    border-radius:16px;
+    border:1px solid #ffffff12;
+    overflow:hidden;
+    background:repeating-linear-gradient(#fefefe,#fefefe 28px,#f4f4f4 29px);
+    color:#111; 
+    padding:24px; 
+    box-shadow:0 10px 30px #00000030;
+    overflow-y:auto;
+  }
+  .page.right{
+    transform-origin:left;
+    transform:rotateY(0deg);
+    transition:transform .9s cubic-bezier(.2,.8,.2,1)
+  }
+  .book.open .page.right{transform:rotateY(-180deg)}
+  .page.left{
+    background:linear-gradient(180deg,#fff,#fafafa);
+    color:#111;
+  }
+  .tab-sejarah{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:10px;
+  }
+  .tab-sejarah .pill{
+    background:#ffefef;
+    border-color:#ffd1d1;
+    color:#8c0000;
+    white-space:nowrap; /* Tambahan untuk responsif */
+  }
+  .timeline{
+    display:grid;
+    gap:8px;
+    margin-top:10px;
+  }
+  .timeline .item{
+    background:#fff;
+    border:1px solid #00000008;
+    border-radius:12px;
+    padding:10px;
+    word-break:break-word; /* Tambahan untuk responsif */
+  }
+  .timeline .year{font-weight:800;color:#8c0000}
+  .timeline .event{margin-top:5px;font-size:0.9rem;}
+
+  /* QUOTES */
+  .quotes{
+    position:relative;
+    overflow:hidden;
+    border-radius:16px;
+    border:1px solid #ffffff12;
+    background:#ffffff07;
+    min-height:180px;
+  }
+  .slide{
+    opacity:0;
+    transform:translateY(8px);
+    transition:all .6s;
+    position:absolute;
+    inset:0;
+    padding:20px;
+    display:grid;
+    place-items:center;
+    text-align:center;
+    word-break:break-word; /* Tambahan untuk responsif */
+  }
+  .slide.active{
+    opacity:1;
+    transform:none;
+    position:relative;
+  }
+  blockquote{
+    font-size:clamp(18px,2.6vw,26px);
+    margin:0;
+    line-height:1.35;
+    padding:0 10px; /* Tambahan untuk responsif */
+  }
+  .by{margin-top:8px;opacity:.8}
+
+  /* GALERI SIMPLE */
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px;
+  }
+  .tile{
+    aspect-ratio:1;
+    background:conic-gradient(from 0deg at 50% 50%, var(--merah), var(--merah), var(--putih), var(--putih));
+    border-radius:16px;
+    border:1px solid #ffffff10;
+    position:relative;
+    overflow:hidden;
+  }
+  .tile::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(100% 60% at 0 0,#ffffff30,transparent 50%);
+    mix-blend-mode:overlay
+  }
+  .tile:hover::after{background:radial-gradient(100% 60% at 0 0,#ffffff60,transparent 50%);}
+
+  /* FLOATING ORNAMENTS */
+  .floaters{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+  }
+  .floater{
+    position:absolute;
+    opacity:.6;
+    filter:blur(.2px);
+    animation:up 8s linear infinite;
+  }
+
+  /* GAME ELEMENTS */
+  .game-area {
+    margin:20px auto;
+    position:relative;
+    width:100%; /* Tambahan untuk responsif */
+    max-width:100%; /* Tambahan untuk responsif */
+    overflow:hidden; /* Tambahan untuk responsif */
+  }
+  .player {
+    width:50px;
+    height:50px;
+    position:absolute;
+    transition:all 0.2s ease;
+    border-radius:50%;
+  }
+  .player1 {background:#E60023;left:0;bottom:20px;}
+  .player2 {background:#1e90ff;left:0;bottom:90px;}
+  .finish-line {
+    position:absolute;
+    right:0;
+    top:0;
+    bottom:0;
+    width:4px;
+    background:#00cc00;
+    box-shadow:0 0 10px #00ff00;
+  }
+  .game-info {margin:10px 0;font-weight:bold;}
+  .progress-bar {
+    height:10px;
+    background:#333;
+    border-radius:5px;
+    margin:10px 0;
+    overflow:hidden;
+  }
+  .progress {
+    height:100%;
+    background:var(--merah);
+    width:0%;
+    transition:width 0.5s ease;
+  }
+  .kerupuk {
+    width:100px;
+    height:30px;
+    background:#f0c040;
+    position:relative;
+    border-radius:10px;
+    margin:40px auto 20px;
+    transform:rotate(0deg);
+    transition:transform 0.3s ease;
+  }
+  .kerupuk-string {
+    position:absolute;
+    top:-40px;
+    left:50%;
+    width:2px;
+    height:40px;
+    background:#aaa;
+  }
+  .kerupuk:hover {transform:rotate(5deg);}
+  .game-controls {
+    display:flex;
+    gap:10px;
+    justify-content:center;
+    margin-top:20px;
+    flex-wrap:wrap; /* Tambahan untuk responsif */
+  }
+  .key {
+    padding:8px 16px;
+    background:#333;
+    border-radius:8px;
+    font-weight:bold;
+    min-width:80px; /* Tambahan untuk responsif */
+    text-align:center; /* Tambahan untuk responsif */
+  }
+
+  /* HISTORY NAV */
+  .history-nav {
+    display:flex;
+    gap:10px;
+    margin-bottom:20px;
+    flex-wrap:wrap;
+  }
+  .history-btn {
+    padding:8px 16px;
+    background:#333;
+    border-radius:8px;
+    cursor:pointer;
+    transition:all 0.3s;
+    white-space:nowrap; /* Tambahan untuk responsif */
+  }
+  .history-btn.active {background:var(--merah);}
+  .history-content {
+    display:none;
+    padding:15px;
+    background:#1a1a1a;
+    border-radius:12px;
+  }
+  .history-content.active {display:block;}
+  .history-period {
+    font-weight:bold;
+    color:var(--emas);
+    margin-bottom:10px;
+  }
+  .history-events {margin-left:20px;}
+  .history-event {
+    margin-bottom:8px;
+    position:relative;
+    padding-left:15px;
+    word-break:break-word; /* Tambahan untuk responsif */
+  }
+  .history-event:before {
+    content:"";
+    position:absolute;
+    left:0;
+    top:7px;
+    width:8px;
+    height:8px;
+    background:var(--merah);
+    border-radius:50%;
+  }
+  
+  /* FOOTER */
+  footer{padding:24px 0;text-align:center;opacity:.75}
+
+  /* ANIMASI PERJUANGAN */
+  .perjuangan-anim {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    max-width:100%; /* Tambahan untuk responsif */
+  }
+  .pejuang {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    height: 100%;
+    animation: maju 6s linear infinite;
+  }
+  .asap {
+    position: absolute;
+    bottom: 0;
+    width:120%;
+    height: 100%;
+    opacity: 0.15;
+    filter: blur(50px);
+    animation: asapGerak 8s linear infinite;
+  }
+  .asap.merah { background: radial-gradient(circle, red, transparent 70%); left: -20%; }
+  .asap.putih { background: radial-gradient(circle, white, transparent 70%); right: -20%; }
+
+  @keyframes maju {
+    0% { transform: translateX(-60%) }
+    50% { transform: translateX(-50%) }
+    100% { transform: translateX(-60%) }
+  }
+  @keyframes asapGerak {
+    0% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.1); }
+    100% { transform: translateY(0) scale(1); }
+  }
+
+  /* VIDEO WRAPPER */
+  .video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow:hidden; /* Tambahan untuk responsif */
+  }
+  .video-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border-radius: 12px;
+  }
+  
+  /* ANIMASI BENDERA JATUH */
+  .flag-fall {
+    position: fixed;
+    top: -50px;
+    width: 40px;
+    height: 60px;
+    background: linear-gradient(to bottom, #E60023 50%, #ffffff 50%);
+    z-index: -1;
+    animation: fall linear infinite;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    max-width:100%; /* Tambahan untuk responsif */
+  }
+  
+  @keyframes fall {
+    to {
+      transform: translateY(100vh) rotate(10deg);
+    }
+  }
+
+  /* ANIMASI MERIAH */
+  .meriah-anim {
+    position: fixed;
+    pointer-events: none;
+    z-index: 999;
+    animation: fadeOut 1s forwards;
+    font-size: 2rem;
+  }
+  
+  @keyframes fadeOut {
+    0% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-50px); }
+  }
+
+  /* OVERLAY & MOBILE NAV */
+  .overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: #00000080;
+    z-index: 99;
+  }
+  .overlay.active { 
+    display: block; 
+  }
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background: #0a0a0a;
+    padding: 20px;
+    z-index: 100;
+    transition: right 0.3s ease;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+  }
+  .mobile-nav.active { 
+    right: 0; 
+  }
+  .mobile-nav a { 
+    display: block;
+    padding: 12px; 
+    border-bottom: 1px solid #333; 
+    transition: all 0.3s ease;
+  }
+  .mobile-nav a:hover {
+    background: #ffffff15;
+    color: var(--merah);
+  }
+  .mobile-nav .close {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 920px){
+    .hero .grid{grid-template-columns:1fr}
+    .cards{grid-template-columns:repeat(2,1fr)}
+    .nav ul{display:none}
+    .hamburger{display:block !important;}
+    
+    /* Tambahan untuk responsif */
+    .hero-decor {
+      inset: auto -30vw -40% -30vw;
+    }
+  }
+  @media (max-width:600px){
+    .cards{grid-template-columns:1fr}
+    .gallery{grid-template-columns:repeat(2,1fr)}
+    .game-controls{flex-direction:column;align-items:center;}
+    .history-nav{flex-direction:column;}
+    
+    /* Perbaikan tambahan untuk mobile */
+    .container {
+      padding: 0 12px;
+    }
+    .hero {
+      padding: 40px 0 20px;
+    }
+    .hero .grid {
+      gap: 20px;
+    }
+    .stats {
+      flex-direction: column;
+    }
+    .stat {
+      width: 100%;
+    }
+    .btn {
+      width: 100%;
+      justify-content: center;
+      padding: 12px;
+    }
+    .btn-ghost {
+      margin-top: 8px;
+    }
+    .hero-decor {
+      inset: auto -40vw -40% -40vw;
+      filter: blur(30px);
+    }
+    .flag-wrap {
+      max-width: 100%;
+    }
+    section {
+      padding: 40px 0;
+    }
+    .sec-title {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .modal .row .btn {
+      min-width: 100%;
+      margin-top: 8px;
+    }
+  }
+  
+  /* ANIMASI PULSA UNTUK MERIAH */
+  .pulse {
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+
+  /* ANIMASI BENDERA BERKIBAR */
+  @keyframes wave {
+    0% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-5px) rotate(2deg); }
+    50% { transform: translateY(0) rotate(0deg); }
+    75% { transform: translateY(5px) rotate(-2deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+  }
+  
+  .wave-flag {
+    animation: wave 3s infinite linear;
+  }
+  
+  /* KEYFRAMES FLOATERS */
+  @keyframes up {
+    0% { transform: translateY(100vh) translateX(0) rotate(0deg); }
+    100% { transform: translateY(-100px) translateX(20px) rotate(360deg); }
+  }
+  .hidden {
+  display: none;
+  }
+</style>
+</head>
+<body>
+<!-- Animasi bendera jatuh di background -->
+<div id="flagContainer"></div>
+
+<audio id="bgAudio" autoplay loop>
+  <source src="https://f.top4top.io/m_35128llmq1.mp3" type="audio/mpeg">
+</audio>
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <span class="badge">HUT RI 80</span>
+      <span>Semangat Kemerdekaan</span>
+    </div>
+    
+    <nav>
+      <ul>
+        <li><a href="#beranda">Beranda</a></li>
+        <li><a href="#navigator">Game 17-an</a></li>
+        <li><a href="#sejarah">Buku Sejarah</a></li>
+        <li><a href="#perjuangan">Perjuangan</a></li>
+        <li><a href="#quotes">Kata Perjuangan</a></li>
+        <li><a href="#galeri">Galeri</a></li>
+      </ul>
+    </nav>
+   
+    <button class="hidden" id="hamburger" style="display:none;">☰</button>
+  </div>
+</header>
+
+<div class="overlay" id="overlay"></div>
+<div class="mobile-nav" id="mobileNav">
+  <button class="close" id="closeNav">✕</button>
+  <a href="#beranda">Beranda</a>
+  <a href="#navigator">Game 17-an</a>
+  <a href="#sejarah">Buku Sejarah</a>
+  <a href="#perjuangan">Perjuangan</a>
+  <a href="#quotes">Kata Perjuangan</a>
+  <a href="#galeri">Galeri</a>
+</div>
+
+<section id="video-perjuangan">
+  <div class="container">
+    <div class="sec-title">
+      <h2>Perjuangan Bangsa Indonesia</h2>
+      <div class="pill">Semangat tak pernah padam 🇮🇩</div>
+    </div>
+
+    <!-- Video Perjuangan -->
+    <div class="video-wrapper">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/ryNFA-_2B2Q?si=ahJpndIL0z5uDwWh"
+        title="Video Perjuangan Kemerdekaan Indonesia" frameborder="0"
+        allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+
+<main class="hero">
+  <div class="hero-decor"></div>
+  <div class="container grid">
+    <div>
+      <div class="kapsul">Dirgahayu Republik Indonesia ke-<b>80</b> • 1945–2025</div>
+      <h1>Merah Putih di Dada, <span style="color:var(--merah)">Semangat</span> di Jiwa!</h1>
+      <p class="sub">
+        Rayakan kemerdekaan dengan aksi nyata. Bukan sekadar lomba, tetapi momentum
+        untuk mempererat persatuan, menebar manfaat, dan melanjutkan perjuangan
+        para pahlawan. Ayo bergerak, berkarya, dan bangga jadi Indonesia!
+      </p>
+      <div class="stats">
+        <div class="stat">✨ 80 Tahun Kemerdekaan</div>
+        <div class="stat">🤝 Satu Nusa • Satu Bangsa</div>
+        <div class="stat">🏆 Spirit 17 Agustus</div>
+      </div>
+      <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;">
+        <a class="btn btn-primary pulse" href="#navigator">Mulai dari Game 17-an</a>
+        <a class="btn btn-ghost" href="#perjuangan">Pelajari Sejarah Perjuangan</a>
+      </div>
+    </div>
+
+    <!-- Animated Flag -->
+    <div>
+      <div class="flag-wrap">
+        <div class="tiang"></div>
+        <div class="ikat"></div>
+        <!-- Waving Indonesia Flag with SVG + filter -->
+        <svg viewBox="0 0 600 400" width="100%" height="100%" preserveAspectRatio="xMidYMid meet" style="border-radius:14px" class="wave-flag">
+          <defs>
+            <filter id="wave" x="-20%" y="-20%" width="140%" height="140%">
+              <feTurbulence id="turb" type="fractalNoise" baseFrequency="0.006 0.012" numOctaves="2" seed="2" />
+              <feDisplacementMap in="SourceGraphic" scale="18" />
+              <animate xlink:href="#turb" attributeName="baseFrequency" dur="8s" values="0.006 0.012; 0.009 0.018; 0.006 0.012" repeatCount="indefinite"/>
+            </filter>
+            <clipPath id="rounded">
+              <rect x="0" y="0" width="600" height="400" rx="18" ry="18"></rect>
+            </clipPath>
+          </defs>
+          <g clip-path="url(#rounded)" filter="url(#wave)">
+            <rect x="0" y="0" width="600" height="200" fill="#E60023"></rect>
+            <rect x="0" y="200" width="600" height="200" fill="#ffffff"></rect>
+          </g>
+        </svg>
+        <div class="shadow"></div>
+      </div>
+      <div class="flag-credit">Bendera Merah Putih — efek gelombang SVG</div>
+    </div>
+  </div>
+
+  <!-- Floating confetti merah putih -->
+  <div class="floaters" aria-hidden="true" id="confetti"></div>
+</main>
+
+<section id="navigator">
+  <div class="container">
+    <div class="sec-title">
+      <h2>Game Lomba 17 Agustusan</h2>
+      <div class="pill">Pilih permainan &nbsp;•&nbsp; Atur giliran &nbsp;•&nbsp; Gaskeun! 💪</div>
+    </div>
+    <div class="cards">
+      <!-- Card 1 -->
+      <article class="card">
+        <div class="badge-mini">Populer</div>
+        <div class="emoji">🧺</div>
+        <h3>Balap Karung</h3>
+        <p class="chip">Lincah & jujur, yang penting hepi!</p>
+        <div class="actions">
+          <button class="btn btn-ghost" data-rules="karung">Lihat Aturan</button>
+          <button class="btn btn-primary" data-play="karung">Mainkan</button>
+        </div>
+      </article>
+      <!-- Card 2 -->
+      <article class="card">
+        <div class="emoji">🧗</div>
+        <h3>Panjat Pinang</h3>
+        <p class="chip">Kerja sama tim adalah kuncinya.</p>
+        <div class="actions">
+          <button class="btn btn-ghost" data-rules="pinang">Lihat Aturan</button>
+          <button class="btn btn-primary" data-play="pinang">Mainkan</button>
+        </div>
+      </article>
+      <!-- Card 3 -->
+      <article class="card">
+        <div class="emoji">🤼</div>
+        <h3>Tarik Tambang</h3>
+        <p class="chip">Kompak, komando, dan kuat!</p>
+        <div class="actions">
+          <button class="btn btn-ghost" data-rules="tambang">Lihat Aturan</button>
+          <button class="btn btn-primary" data-play="tambang">Mainkan</button>
+        </div>
+      </article>
+      <!-- Card 4 -->
+      <article class="card">
+        <div class="emoji">🍪</div>
+        <h3>Makan Kerupuk</h3>
+        <p class="chip">Jangan pakai tangan ya! 😄</p>
+        <div class="actions">
+          <button class="btn btn-ghost" data-rules="kerupuk">Lihat Aturan</button>
+          <button class="btn btn-primary" data-play="kerupuk">Mainkan</button>
+        </div>
+      </article>
+      <!-- Card 5 -->
+      <article class="card">
+        <div class="emoji">🧻</div>
+        <h3>Bola Sarung</h3>
+        <p class="chip">Kreatif dan kocak, wajib tertib.</p>
+        <div class="actions">
+          <button class="btn btn-ghost" data-rules="sarung">Lihat Aturan</button>
+          <button class="btn btn-primary" data-play="sarung">Mainkan</button>
+        </div>
+      </article>
+      <!-- Card 6 -->
+      <article class="card">
+        <div class="emoji">🏃</div>
+        <h3>Lari Kelereng</h3>
+        <p class="chip">Seimbang dan fokus penuh.</p>
+        <div class="actions">
+          <button class="btn btn-ghost" data-rules="kelereng">Lihat Aturan</button>
+          <button class="btn btn-primary" data-play="kelereng">Mainkan</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Modal untuk aturan & mulai -->
+<div class="modal" id="modal">
+  <div class="box">
+    <h3 id="modalTitle">Judul</h3>
+    <p id="modalDesc">Deskripsi aturan singkat…</p>
+    
+    <!-- Game Container -->
+    <div class="game-container" id="gameContainer"></div>
+    
+    <div class="row">
+      <button class="btn btn-ghost" id="btnClose">Tutup</button>
+      <button class="btn btn-primary" id="btnStart">Mulai Permainan</button>
+    </div>
+  </div>
+</div>
+
+<section id="sejarah">
+  <div class="container">
+    <div class="sec-title">
+      <h2>Buku Sejarah Singkat</h2>
+      <div class="pill">Klik buku untuk membalik halaman 📖</div>
+    </div>
+
+    <div class="book">
+      <div class="book-wrap" id="book">
+        <div class="page left">
+          <div class="tab-sejarah">
+            <span class="pill">Proklamasi</span>
+            <span class="pill">Persatuan</span>
+            <span class="pill">Kedaulatan</span>
+          </div>
+          <h3>Bab I — Lahirnya Republik</h3>
+          <p><b>17 Agustus 1945</b> — Naskah Proklamasi dibacakan. Sejak itu, bangsa Indonesia berdiri tegak sebagai negara merdeka.</p>
+          <div class="timeline">
+            <div class="item">
+              <span class="year">1945</span>
+              <div class="event">Pembentukan PPKI & unsur awal pemerintahan.</div>
+            </div>
+            <div class="item">
+              <span class="year">1945–1949</span>
+              <div class="event">Agresi & diplomasi mempertahankan kemerdekaan.</div>
+            </div>
+            <div class="item">
+              <span class="year">1949</span>
+              <div class="event">Pengakuan kedaulatan Indonesia oleh Belanda.</div>
+            </div>
+            <div class="item">
+              <span class="year">1950</span>
+              <div class="event">Indonesia menjadi negara kesatuan.</div>
+            </div>
+            <div class="item">
+              <span class="year">1955</span>
+              <div class="event">Konferensi Asia-Afrika di Bandung.</div>
+            </div>
+          </div>
+        </div>
+        <div class="page right">
+          <div class="tab-sejarah">
+            <span class="pill">Pembangunan</span>
+            <span class="pill">Reformasi</span>
+            <span class="pill">Masa Kini</span>
+          </div>
+          <h3>Bab II — Mengisi Kemerdekaan</h3>
+          <p>Dari masa ke masa, bangsa ini melangkah maju lewat pendidikan, sains, ekonomi kreatif, dan teknologi. Persatuan adalah energi utama kita.</p>
+          <div class="timeline">
+            <div class="item">
+              <span class="year">1960-an</span>
+              <div class="event">Konsolidasi negara & pembangunan awal.</div>
+            </div>
+            <div class="item">
+              <span class="year">1970–1980</span>
+              <div class="event">Pembangunan infrastruktur nasional.</div>
+            </div>
+            <div class="item">
+              <span class="year">1998</span>
+              <div class="event">Reformasi: demokrasi & pembaruan institusi.</div>
+            </div>
+            <div class="item">
+              <span class="year">2004</span>
+              <div class="event">Pemilihan presiden langsung pertama.</div>
+            </div>
+            <div class="item">
+              <span class="year">2025</span>
+              <div class="event">80 Tahun Indonesia Merdeka.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="perjuangan">
+  <div class="container">
+    <div class="sec-title">
+      <h2>Perjalanan Perjuangan Indonesia</h2>
+      <div class="pill">Jejak sejarah menuju kemerdekaan 🇮🇩</div>
+    </div>
+    
+    <div class="history-nav">
+      <div class="history-btn active" data-period="pra">Pra Kemerdekaan</div>
+      <div class="history-btn" data-period="revolusi">Revolusi Fisik</div>
+      <div class="history-btn" data-period="konsolidasi">Konsolidasi</div>
+      <div class="history-btn" data-period="modern">Indonesia Modern</div>
+    </div>
+    
+    <div class="history-content active" id="pra">
+      <div class="history-period">Pra Kemerdekaan (1900-1945)</div>
+      <div class="history-events">
+        <div class="history-event">Budi Utomo didirikan (1908) - Kebangkitan Nasional</div>
+        <div class="history-event">Sumpah Pemuda (1928) - Satu Tanah Air, Satu Bangsa, Satu Bahasa</div>
+        <div class="history-event">Pendudukan Jepang (1942-1945)</div>
+        <div class="history-event">BPUPKI dan PPKI dibentuk (1945)</div>
+        <div class="history-event">Perumusan Pancasila (1945)</div>
+      </div>
+    </div>
+    
+    <div class="history-content" id="revolusi">
+      <div class="history-period">Revolusi Fisik (1945-1949)</div>
+      <div class="history-events">
+        <div class="history-event">Proklamasi Kemerdekaan (17 Agustus 1945)</div>
+        <div class="history-event">Pertempuran Surabaya (1945)</div>
+        <div class="history-event">Agresi Militer Belanda I (1947)</div>
+        <div class="history-event">Agresi Militer Belanda II (1948)</div>
+        <div class="history-event">Konferensi Meja Bundar (1949)</div>
+      </div>
+    </div>
+    
+    <div class="history-content" id="konsolidasi">
+      <div class="history-period">Konsolidasi (1950-1998)</div>
+      <div class="history-events">
+        <div class="history-event">Demokrasi Parlementer (1950-1959)</div>
+        <div class="history-event">Demokrasi Terpimpin (1959-1965)</div>
+        <div class="history-event">Gerakan 30 September (1965)</div>
+        <div class="history-event">Orde Baru (1966-1998)</div>
+        <div class="history-event">Krisis Ekonomi dan Politik (1997-1998)</div>
+      </div>
+    </div>
+    
+    <div class="history-content" id="modern">
+      <div class="history-period">Indonesia Modern (1998-Sekarang)</div>
+      <div class="history-events">
+        <div class="history-event">Reformasi (1998)</div>
+        <div class="history-event">Otonomi Daerah (1999)</div>
+        <div class="history-event">Pemilu Demokratis (1999, 2004, dst)</div>
+        <div class="history-event">Tsunami Aceh (2004)</div>
+        <div class="history-event">Perkembangan Ekonomi Digital (2010-an)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="quotes">
+  <div class="container">
+    <div class="sec-title">
+      <h2>Kata-Kata Perjuangan</h2>
+      <div class="pill">Gelorakan semangat di setiap langkah 🇮🇩</div>
+    </div>
+
+    <div class="quotes" style="min-height:180px">
+      <div class="slide active">
+        <blockquote>“Bangsa yang besar adalah bangsa yang menghormati jasa pahlawannya.”</blockquote>
+        <div class="by">— Ir. Soekarno</div>
+      </div>
+      <div class="slide">
+        <blockquote>“Kurang cerdas bisa diperbaiki dengan belajar, kurang cakap bisa dihilangkan dengan pengalaman. Tetapi <b>kurang jujur</b> sulit diperbaiki.”</blockquote>
+        <div class="by">— Mohammad Hatta</div>
+      </div>
+      <div class="slide">
+        <blockquote>“Tiada awan di langit yang tetap selamanya. Habis gelap terbitlah terang.”</blockquote>
+        <div class="by">— R.A. Kartini</div>
+      </div>
+      <div class="slide">
+        <blockquote>“Kemerdekaan hanyalah jembatan emas. Di seberangnya, kita bangun keadilan dan kesejahteraan.”</blockquote>
+        <div class="by">— Pesan untuk Generasi Emas 2045</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galeri">
+  <div class="container">
+    <div class="sec-title">
+      <h2>Galeri Merah Putih</h2>
+      <div class="pill">Aksen visual sederhana bertema bendera</div>
+    </div>
+    <div class="gallery">
+      <div class="tile"></div>
+      <div class="tile" style="background:linear-gradient(180deg,#E60023 50%,#fff 50%)"></div>
+      <div class="tile" style="background:linear-gradient(45deg,#E60023 50%,#fff 50%)"></div>
+      <div class="tile" style="background:radial-gradient(circle at 50% 35%, #E60023 40%, #fff 41%)"></div>
+      <div class="tile" style="background:conic-gradient(#E60023 0 180deg,#fff 180deg 360deg)"></div>
+      <div class="tile" style="background:linear-gradient(90deg,#E60023 50%,#fff 50%)"></div>
+      <div class="tile" style="background:radial-gradient(120% 80% at 0 0,#E60023 30%,#fff 31%)"></div>
+      <div class="tile" style="background:linear-gradient(200deg,#E60023 50%,#fff 50%)"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <small>© 2025 Didin Code — Cinta Tanah Air, Cinta Sesama.</small>
+  </div>
+</footer>
+
+<script>
+  // Hamburger menu for mobile
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobileNav');
+  const overlay = document.getElementById('overlay');
+  const closeNav = document.getElementById('closeNav');
+  
+  hamburger.addEventListener('click', () => {
+    mobileNav.classList.add('active');
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  });
+  
+  closeNav.addEventListener('click', () => {
+    mobileNav.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  });
+  
+  overlay.addEventListener('click', () => {
+    mobileNav.classList.remove('active');
+    overlay.classList.remove('active');
+    document.body.style.overflow = 'auto';
+  });
+
+  // Modal Navigator Lomba
+  const modal = document.getElementById('modal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDesc  = document.getElementById('modalDesc');
+  const gameContainer = document.getElementById('gameContainer');
+  const btnClose   = document.getElementById('btnClose');
+  const btnStart   = document.getElementById('btnStart');
+  
+  let currentGame = null;
+  let gameState = null;
+
+  const RULES = {
+    karung: {
+      title: "Balap Karung",
+      desc: "Peserta melompat di dalam karung dari garis start ke finish. Tidak boleh melepas karung. Sistem gugur atau poin, sesuaikan panitia."
+    },
+    pinang: {
+      title: "Panjat Pinang",
+      desc: "Tim 4–6 orang memanjat tiang berminyak untuk meraih hadiah. Wajib alat keselamatan dasar & pengawas. Utamakan keamanan!"
+    },
+    tambang: {
+      title: "Tarik Tambang",
+      desc: "Dua tim menarik tali ke arah masing-masing. Pemenang saat garis tanda melewati patok. Dilarang lilitkan tali di tangan."
+    },
+    kerupuk: {
+      title: "Makan Kerupuk",
+      desc: "Kerupuk digantung, peserta makan tanpa tangan. Yang habis duluan, menang. Jaga jarak & kebersihan."
+    },
+    sarung: {
+      title: "Bola Sarung",
+      desc: "Bola dibungkus sarung, oper antartim tanpa jatuh. Poin saat bola mencapai garis. Lucu tapi tetap sportif."
+    },
+    kelereng: {
+      title: "Lari Kelereng",
+      desc: "Sendok di mulut, kelereng di atasnya. Lari pelan stabil. Jatuh, kembali ke pos terakhir."
+    }
+  };
+
+  // Game implementations
+  function startKarungGame() {
+    gameContainer.innerHTML = `
+      <h4>Balap Karung - Lomba!</h4>
+      <p>Klik tombol "Lompat" secepat mungkin!</p>
+      <div class="game-area" style="height:180px; width:100%; position:relative; border-bottom:2px solid #555;">
+        <div class="player player1" id="player1"></div>
+        <div class="player player2" id="player2"></div>
+        <div class="finish-line"></div>
+      </div>
+      <div class="game-info" id="gameInfo">Pemain 1: 0 | Pemain 2: 0</div>
+      <div class="game-controls">
+        <button class="btn btn-primary" id="jump1">Lompat! (Pemain 1)</button>
+        <button class="btn btn-primary" id="jump2">Lompat! (Pemain 2)</button>
+        <button class="btn btn-ghost" id="resetGame">Reset</button>
+      </div>
+    `;
+    
+    const player1 = document.getElementById('player1');
+    const player2 = document.getElementById('player2');
+    const jump1 = document.getElementById('jump1');
+    const jump2 = document.getElementById('jump2');
+    const resetBtn = document.getElementById('resetGame');
+    const gameInfo = document.getElementById('gameInfo');
+    
+    let pos1 = 0, pos2 = 0;
+    
+    jump1.addEventListener('click', () => {
+      pos1 += Math.floor(Math.random() * 20) + 5;
+      player1.style.left = pos1 + 'px';
+      updateGameInfo();
+      if (pos1 >= 500) {
+        gameInfo.innerHTML = "<span style='color:#E60023'>🎉 Pemain 1 Menang!</span>";
+        jump1.disabled = jump2.disabled = true;
+      }
+    });
+    
+    jump2.addEventListener('click', () => {
+      pos2 += Math.floor(Math.random() * 20) + 5;
+      player2.style.left = pos2 + 'px';
+      updateGameInfo();
+      if (pos2 >= 500) {
+        gameInfo.innerHTML = "<span style='color:#1e90ff'>🎉 Pemain 2 Menang!</span>";
+        jump1.disabled = jump2.disabled = true;
+      }
+    });
+    
+    resetBtn.addEventListener('click', () => {
+      pos1 = pos2 = 0;
+      player1.style.left = '0px';
+      player2.style.left = '0px';
+      jump1.disabled = jump2.disabled = false;
+      updateGameInfo();
+    });
+    
+    function updateGameInfo() {
+      gameInfo.textContent = `Pemain 1: ${pos1}px | Pemain 2: ${pos2}px`;
+    }
+    
+    updateGameInfo();
+  }
+  
+  function startKerupukGame() {
+    gameContainer.innerHTML = `
+      <h4>Makan Kerupuk - Lomba!</h4>
+      <p>Klik kerupuk untuk memakannya!</p>
+      <div style="height:120px; position:relative;">
+        <div class="kerupuk" id="kerupuk">
+          <div class="kerupuk-string"></div>
+        </div>
+      </div>
+      <div class="progress-bar">
+        <div class="progress" id="progress"></div>
+      </div>
+      <div class="game-info" id="gameInfo">Progress: 0%</div>
+      <div class="game-controls">
+        <button class="btn btn-ghost" id="resetGame">Reset</button>
+      </div>
+    `;
+    
+    const kerupuk = document.getElementById('kerupuk');
+    const progressBar = document.getElementById('progress');
+    const gameInfo = document.getElementById('gameInfo');
+    const resetBtn = document.getElementById('resetGame');
+    
+    let progress = 0;
+    
+    kerupuk.addEventListener('click', () => {
+      progress += Math.floor(Math.random() * 10) + 5;
+      if (progress > 100) progress = 100;
+      progressBar.style.width = progress + '%';
+      gameInfo.textContent = `Progress: ${progress}%`;
+      
+      if (progress >= 100) {
+        gameInfo.innerHTML = "<span style='color:#E60023'>🎉 Kamu berhasil menghabiskan kerupuk!</span>";
+      }
+    });
+    
+    resetBtn.addEventListener('click', () => {
+      progress = 0;
+      progressBar.style.width = '0%';
+      gameInfo.textContent = "Progress: 0%";
+    });
+  }
+
+  // Event listeners for game buttons
+  document.querySelectorAll('[data-rules]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const k = btn.getAttribute('data-rules');
+      currentGame = k;
+      modalTitle.textContent = "Aturan — " + RULES[k].title;
+      modalDesc.textContent  = RULES[k].desc;
+      gameContainer.innerHTML = '';
+      modal.classList.add('active');
+      btnStart.textContent = "Mulai Permainan";
+      btnStart.onclick = () => {
+        if (currentGame === 'karung') startKarungGame();
+        else if (currentGame === 'kerupuk') startKerupukGame();
+        else alert("Mode demo: " + RULES[k].title + " dimulai! 🎉");
+      };
+    });
+  });
+  
+  document.querySelectorAll('[data-play]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const k = btn.getAttribute('data-play');
+      currentGame = k;
+      modalTitle.textContent = "Mulai — " + RULES[k].title;
+      modalDesc.textContent  = "Siapkan peserta, hitung mundur 3…2…1… MERDEKA!";
+      modal.classList.add('active');
+      btnStart.textContent = "Mulai Permainan";
+      
+      if (k === 'karung') {
+        startKarungGame();
+        btnStart.onclick = startKarungGame;
+      } else if (k === 'kerupuk') {
+        startKerupukGame();
+        btnStart.onclick = startKerupukGame;
+      } else {
+        gameContainer.innerHTML = '<p style="text-align:center;padding:20px;">Permainan ini dalam pengembangan. Silakan coba Balap Karung atau Makan Kerupuk!</p>';
+        btnStart.onclick = () => alert("Selamat bertanding! 🇮🇩");
+      }
+    });
+  });
+  
+  btnClose.addEventListener('click', ()=> modal.classList.remove('active'));
+  modal.addEventListener('click', (e)=>{ if(e.target===modal) modal.classList.remove('active') });
+
+  // Buku flip
+  const book = document.getElementById('book');
+  book.addEventListener('click', ()=> book.classList.toggle('open'));
+
+  // Quotes slider
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  let idx = 0;
+  setInterval(()=>{
+    slides[idx].classList.remove('active');
+    idx = (idx+1) % slides.length;
+    slides[idx].classList.add('active');
+  }, 4200);
+
+  // Confetti merah putih sederhana
+  const confetti = document.getElementById('confetti');
+  for (let i=0;i<22;i++){
+    const el = document.createElement('div');
+    el.className = 'floater';
+    el.textContent = Math.random()>.5 ? '🟥' : '⬜';
+    el.style.left = Math.random()*100 + '%';
+    el.style.fontSize = (12 + Math.random()*20) + 'px';
+    el.style.animationDelay = (Math.random()*8)+'s';
+    el.style.animationDuration = (7 + Math.random()*6)+'s';
+    confetti.appendChild(el);
+  }
+  
+  // History navigation
+  const historyBtns = document.querySelectorAll('.history-btn');
+  historyBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const period = btn.getAttribute('data-period');
+      
+      // Remove active class from all
+      historyBtns.forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.history-content').forEach(c => c.classList.remove('active'));
+      
+      // Add active class to clicked
+      btn.classList.add('active');
+      document.getElementById(period).classList.add('active');
+    });
+  });
+
+  // Animasi bendera jatuh di background
+  const flagContainer = document.getElementById('flagContainer');
+  function createFallingFlag() {
+    const flag = document.createElement('div');
+    flag.className = 'flag-fall';
+    flag.style.left = Math.random() * 100 + 'vw';
+    flag.style.animationDuration = (Math.random() * 10 + 5) + 's';
+    
+    // Tambahkan efek jatuh
+    flagContainer.appendChild(flag);
+    
+    // Hapus setelah selesai animasi
+    setTimeout(() => {
+      flag.remove();
+    }, parseFloat(flag.style.animationDuration) * 1000);
+  }
+  
+  // Buat bendera jatuh setiap 300ms
+  setInterval(createFallingFlag, 300);
+  
+  // Animasi meriah saat klik
+  document.addEventListener('click', (e) => {
+    const anim = document.createElement('div');
+    anim.className = 'meriah-anim';
+    anim.textContent = Math.random() > 0.5 ? '🇮🇩' : '🎉';
+    anim.style.left = e.clientX + 'px';
+    anim.style.top = e.clientY + 'px';
+    document.body.appendChild(anim);
+    
+    // Hapus setelah animasi selesai
+    setTimeout(() => {
+      anim.remove();
+    }, 1000);
+  });
+
+  // A11y: focus ring untuk tombol via keyboard
+  document.addEventListener('keydown', e=>{
+    if(e.key==='Tab') document.body.classList.add('using-keyboard');
+  });
+  
+  // Audio handling
+  const audio = document.getElementById("bgAudio");
+  audio.style.display = "none"; // Hide audio element
+
+  // Coba autoplay
+  audio.play().catch(() => {
+    // Kalau gagal, tunggu klik user
+    document.addEventListener("click", () => {
+      audio.play();
+    }, { once: true });
+  });
+</script>
+</body>
+</html>
